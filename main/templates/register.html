@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Vibe Social</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
     <h1>Registro</h1>
     
     <form method="post" enctype="multipart/form-data">
@@ -15,5 +10,4 @@
     </form>
     
     <p>Já tem uma conta? <a href="{% url 'login' %}">Faça login</a></p>
-</body>
-</html>
+{% endblock %}

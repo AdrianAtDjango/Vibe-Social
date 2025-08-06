@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="newpost">
+    {% include 'newpost.html' %}
+</div>
+<div class="list">
+    <h1>Últimos Posts</h1>
+    <ul>
+        {% for post in posts %}
+        <li>{{ post }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

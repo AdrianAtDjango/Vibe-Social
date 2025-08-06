@@ -1,0 +1,7 @@
+<h1>Olá {{ user.nome }}, Bem-vindo à Vibe Social!</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.content }}
+    {{ form.image }}
+    <button type="submit">Postar</button>
+</form>
