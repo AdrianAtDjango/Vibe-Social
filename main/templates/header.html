@@ -1,0 +1,23 @@
+{% load static %}
+<nav class="navbar">
+    <ul>
+        <li class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="">
+        </li>
+        {% if user.is_authenticated %}
+        <li class="search">
+            <input type="text" placeholder="Pesquisar">
+            <button type="submit"><svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2.5a7.5 7.5 0 0 1 5.964 12.048l4.743 4.745a1 1 0 0 1-1.32 1.497l-.094-.083-4.745-4.743A7.5 7.5 0 1 1 10 2.5Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z" fill="#212121"/></svg></button>
+        </li>
+        <ul class="navegation">
+            <li><a href="{% url 'home_page' %}"><button>Home</button></a></li>
+            <li><a href=""><button>Novo Post</button></a></li>
+            <li><a href="{% url 'register_page' %}"><button>Sair</button></a></li>
+        </ul>
+        {% else %}
+        <ul class="login">
+            <li>{% include 'login.html' %}</li>
+        </ul>
+        {% endif %}
+    </ul>
+</nav>

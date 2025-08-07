@@ -8,7 +8,10 @@
     <h1>Últimos Posts</h1>
     <ul>
         {% for post in posts %}
-        <li>{{ post }}</li>
+            <li>{{ post }}</li>
+            {% if post.image %}
+                <li><img src="{{ post.image.url }}" alt="Imagem do post"></li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

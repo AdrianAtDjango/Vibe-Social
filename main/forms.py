@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User, Post
 
 class RegisterForm(UserCreationForm):
-    nome = forms.CharField(max_length=64, required=True)
     email = forms.EmailField(required=True)
     profile_pic = forms.ImageField(required=False)
     
@@ -11,7 +10,7 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = [
             'username',
-            'nome',
+            'name',
             'email',
             'password1',
             'password2',
@@ -19,8 +18,10 @@ class RegisterForm(UserCreationForm):
         ]
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(label='Email')
-    password = forms.CharField(widget=forms.PasswordInput(), label='Senha')
+    email = forms.EmailField(label='Email', 
+        widget=forms.EmailInput(attrs={'placeholder': 'Email'})
+    )
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Senha'}), label='Senha')
 
 class CreatePostForm(forms.ModelForm):
     class Meta:
