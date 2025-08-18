@@ -6,6 +6,9 @@
 }
 
 header {
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
   background-color: #fd0c2c;
   padding: 15px 30px;
   box-shadow: 0px 0px 25px rgb(138, 138, 138);
@@ -62,9 +65,12 @@ header .navbar ul .navegation li {
   justify-content: center;
   align-items: center;
   margin-right: 4px;
+  border-right: 3px solid #c20e26;
+  height: 26px;
 }
 header .navbar ul .navegation li:last-child {
   margin-right: 0px;
+  border-right: 0;
 }
 header .navbar ul .navegation li a {
   text-decoration: none;
@@ -73,9 +79,8 @@ header .navbar ul .navegation li a button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  padding: 6px 10px;
-  border-radius: 9999px;
+  font-size: 18px;
+  padding: 6px 20px;
   border: none;
   background-color: transparent;
   color: #fff;
@@ -88,6 +93,314 @@ header .navbar ul .navegation li a button img {
   margin-right: 8px;
 }
 header .navbar ul .navegation li a button:hover {
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 85px;
+}
+main .newpost {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  outline: 1px solid #c5c5c5;
+  box-shadow: 0px 0px 10px rgb(138, 138, 138);
+  padding: 20px;
+  margin-block: 35px;
+  border-radius: 1rem;
+  width: 700px;
+}
+main .newpost .user-infos {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+main .newpost .user-infos .user-img img {
+  border-radius: 9999px;
+  margin-right: 10px;
+  height: 40px;
+  width: 40px;
+}
+main .newpost .user-infos .user-txt {
+  display: flex;
+  flex-direction: column;
+}
+main .newpost .user-infos .user-txt h2 {
+  font-size: 20px;
+  color: #fd0c2c;
+}
+main .newpost .user-infos .user-txt h4 {
+  font-weight: 400;
+  color: #c5c5c5;
+  font-size: 14px;
+  margin-top: -4px;
+}
+main .newpost form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+main .newpost form .form-to-post textarea {
+  background-color: #ececec;
+  width: 100%;
+  border-radius: 0.5rem;
+  resize: none;
+  border: none;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+main .newpost form .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+main .newpost form .options .submit {
+  padding: 10px 20px;
+  background-color: #fd0c2c;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 9999px;
+  border: none;
+  width: 100px;
+  height: 38px;
+  box-sizing: border-box;
+}
+main .newpost form .options .submit:hover {
+  background-color: #c20e26;
+  cursor: pointer;
+}
+main .newpost form .options .form-image #id_image::file-selector-button {
+  background-image: url(../img/file.svg);
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-color: transparent;
+  background-size: contain;
+  text-indent: -99999px;
+  height: 25px;
+  width: 100px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.register {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+  width: 100%;
+}
+.register form {
+  width: 35%;
+}
+.register form h1 {
+  color: #fd0c2c;
+  font-size: 42px;
+}
+.register form p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: grey;
+}
+.register form .form-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.register form .form-input label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.register form .form-input input {
+  padding: 8px 12px;
+  border: none;
+  outline: 2px solid #fd0c2c;
+  border-radius: 8px;
+  font-size: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.register form .form-input #id_profile_pic {
+  outline: none;
+  padding: 8px 0px;
+  border-radius: 0px;
+}
+.register form .form-input #id_profile_pic::file-selector-button {
+  background-color: #fd0c2c;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+}
+.register form .form-input #id_profile_pic::file-selector-button:hover {
+  cursor: pointer;
+  background-color: #c20e26;
+}
+.register form .submit {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 9999px;
+  border: none;
+  background-color: #fd0c2c;
+}
+.register form .submit:hover {
+  cursor: pointer;
+  background-color: #c20e26;
+}
+
+.login-form {
+  display: flex;
+}
+.login-form input {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.login-form button {
+  padding: 8px 12px;
+  background-color: #c20e26;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.list .post {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  outline: 1px solid #c5c5c5;
+  box-shadow: 0px 0px 10px rgb(138, 138, 138);
+  padding: 20px;
+  margin-bottom: 35px;
+  border-radius: 1rem;
+  width: 700px;
+}
+.list .post .post-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .post .post-infos .post-user {
+  display: flex;
+  align-items: center;
+}
+.list .post .post-infos .post-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  margin-right: 10px;
+}
+.list .post .post-infos .post-user .post-txts h2 {
+  font-size: 20px;
+  color: #fd0c2c;
+  display: flex;
+  align-items: center;
+}
+.list .post .post-infos .post-user .post-txts h2 span {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #c5c5c5;
+  font-weight: 400;
+}
+.list .post .post-infos .post-user .post-txts h4 {
+  font-weight: 400;
+  font-size: 14px;
+}
+.list .post .post-infos .post-operations a {
+  color: #c5c5c5;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+.list .post .post-infos .post-operations a:first-child {
+  margin-right: 5px;
+}
+.list .post .post-content {
+  margin-top: 20px;
+}
+.list .post .post-content h1 {
+  font-size: 22px;
+  white-space: pre-line;
+}
+.list .post .post-image {
+  margin-top: 15px;
+}
+.list .post .post-image img {
+  border-radius: 1rem;
+  width: 600px;
+  max-height: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #c5c5c5;
+}
+
+.delete-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  outline: 1px solid #c5c5c5;
+  box-shadow: 0px 0px 10px rgb(138, 138, 138);
+  padding: 25px;
+  margin-block: 35px;
+  border-radius: 1rem;
+  width: 700px;
+}
+.delete-form h1 {
+  margin-bottom: 5px;
+}
+.delete-form p {
+  margin-bottom: 15px;
+}
+.delete-form .operations {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+}
+.delete-form .operations a {
+  margin-right: 10px;
+  background-color: #e9e9e9;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #aaaaaa;
+}
+.delete-form .operations a:hover {
+  background-color: #e2e2e2;
+}
+.delete-form .operations input {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: #fd0c2c;
+  color: #fff;
+  font-size: 18px;
+}
+.delete-form .operations input:hover {
   background-color: #c20e26;
   cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

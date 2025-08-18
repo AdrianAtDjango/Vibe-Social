@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -30,24 +30,6 @@ def register_view(request):
     context = {'form': form, 'formlogin': formlogin}
     return render(request, 'register.html', context)
 
-
-@login_required
-def new_post(request):
-    if request.method == 'POST':
-        form = CreatePostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.posted_by = request.user
-            post.save()            
-            return redirect('home_page')
-        else:
-            messages.error(request, 'Algo de errado em seu post')
-    else:
-        form = CreatePostForm()
-    
-    context = {'form': form}
-    return render(request, 'newpost.html', context)
-
 @login_required
 def home_page(request):
     posts = Post.objects.all().order_by('-time')
@@ -65,3 +47,44 @@ def home_page(request):
     
     context = {'form': form, 'posts': posts}
     return render(request, 'list.html', context)
+
+@login_required
+def new_post(request):
+    if request.method == 'POST':
+        form = CreatePostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.posted_by = request.user
+            post.save()            
+            return redirect('home_page')
+        else:
+            messages.error(request, 'Algo de errado em seu post')
+    else:
+        form = CreatePostForm()
+    
+    context = {'form': form}
+    return render(request, 'new-edit.html', context)
+
+@login_required
+def edit_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == 'POST':
+        form = CreatePostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('home_page')
+    else:
+        form = CreatePostForm(instance=post)
+
+    context = {'form': form}
+    return render(request, 'new-edit.html', context)
+
+@login_required
+def delete_post(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('home_page')
+    
+    context = {'post': post}
+    return render(request, 'delete.html', context)

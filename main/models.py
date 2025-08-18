@@ -13,10 +13,12 @@ class User(AbstractUser):
         return f'@{self.username}'
 
 class Post(models.Model):
-    content = models.TextField(max_length=280)
+    content = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='posts', null=True, blank=True)
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.posted_by} posted {self.content} on {self.time}'
+    
+    

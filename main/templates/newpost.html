@@ -1,7 +1,21 @@
-<h1>Olá {{ user.name }}, Bem-vindo à Vibe Social!</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.content }}
-    {{ form.image }}
-    <button type="submit">Postar</button>
-</form>
+<div class="newpost">
+    <div class="user-infos">
+        <div class="user-img">
+            <img src="{{ user.profile_pic.url }}" alt="">
+        </div>
+        <div class="user-txt">
+            <h2>{{ user.name }}</h2>
+            <h4>@{{ user.username }}</h4>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-to-post">
+            {{ form.content }}
+        </div>
+        <div class="options">
+            <div class="form-image">{{ form.image }}</div>
+            <button type="submit" class="submit">Postar</button>
+        </div>
+    </form>
+</div>

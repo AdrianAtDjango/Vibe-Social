@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vibe Social</title>
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
 </head>
 <body>
     <header>
         {% include 'header.html' %}
     </header>
-    {% block content %}
-    {% endblock %}
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

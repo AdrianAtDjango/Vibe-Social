@@ -1,11 +1,57 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block content %}
-    <h1>Registro</h1>
-    
+<article class="register">
+    <div class="image">
+        <img src="{% static 'img/connection-png.png' %}" alt="">
+    </div>
     <form method="post" enctype="multipart/form-data">
+        <h1>Registre-se</h1>
+        <p>É fácil e gratuito!</p>
         {% csrf_token %}
-        {{ form }}
-        <button type="submit">Registrar</button>
+        <div class="form-input">
+            <label for="name">Nome: </label>
+            {{ form.name }}
+        </div>
+        <div class="form-input">
+            <label for="name">Seu Melhor Email: </label>
+            {{ form.email }}
+        </div>
+        <div class="form-input">
+            <label for="username">Username: </label>
+            {{ form.username }}
+        </div>
+        <div class="form-input">
+            <label for="password1">Senha: </label>
+            {{ form.password1 }}
+        </div>
+        <div class="form-input">
+            <label for="password2">Confirme a Senha: </label>
+            {{ form.password2 }}
+        </div>
+        <div class="form-input">
+            <label for="profile_pic">Foto de Perfil: </label>
+            {{ form.profile_pic }}
+        </div>
+        <button type="submit" class="submit">Registrar</button>
     </form>
+</article>
 {% endblock %}
+
+<!--
+    email = forms.EmailField(required=True)
+    profile_pic = forms.ImageField(required=False)
+    
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'name',
+            'email',
+            'password1',
+            'password2',
+            'profile_pic',
+        ]
+
+-->

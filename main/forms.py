@@ -24,6 +24,12 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Senha'}), label='Senha')
 
 class CreatePostForm(forms.ModelForm):
+    content = forms.CharField(
+            widget=forms.Textarea(
+                attrs={'placeholder': 'Vamos mudar o mundo?'}
+            )
+        )
+    
     class Meta:
         model = Post
         fields = ['content', 'image']
